@@ -25,9 +25,17 @@ const connection = mysql.createConnection({
 connection.connect();
 
 // Rotas
+// Configurando rota para a página inicial
 app.get('/', (req, res) => {
-    // Página inicial (HOME)
-    res.render('home');
+    // Consulta SQL para obter a última postagem
+    const query = 'SELECT * FROM postagens ORDER BY id DESC LIMIT 1';
+
+    // Executando a consulta
+    connection.query(query, (error, results, fields) => {
+        if (error) throw error;
+        // Passando a última postagem para o template
+        res.render('home', { lastPost: results[0] });
+    });
 });
 
 app.get('/sobre', (req, res) => {
@@ -89,7 +97,9 @@ app.get('/postagens', (req, res) => {
     });
 });
 
+app.use(express.static('public'));
 
-app.listen(3000, () => {
-    console.log('Servidor rodando na porta 3000');
+
+app.listen(5000, () => {
+    console.log('Servidor rodando na porta 5000');
 });

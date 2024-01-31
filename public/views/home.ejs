@@ -4,18 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <title>Home</title>
+    <title>Meu Blog - Home</title>
+    <style>
+        html {
+            background-image: url('/images/foto minha.jpg'); /* Substitua 'caminho/para/sua/imagem.jpg' pelo caminho da sua imagem */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh; /* Garante que a imagem de fundo cubra toda a altura da página */
+            margin: 0; /* Remove margens padrão */
+            padding: 0; /* Remove preenchimentos padrão */
+        }
+        </style>    
 </head>
+
 <body>
     <div class="container">
-        <h1 class="mt-5">Bem vindo a meu Blog</h1>
-        Navegue entre as paginas pelos botões abaixo
-        <div class="mb-3">
-            <a href="/sobre" class="btn btn-primary">Ir para a página Sobre</a>
-            <a href="/contato" class="btn btn-primary">Ir para a página Contato</a>
-            <a href="/admin" class="btn btn-primary">Ir para a página de Administração</a>
-            <a href="/postagens" class="btn btn-primary">Ir para a página de Postagens</a>
-        </div>
+        <header class="mt-5 mb-4">
+            <h1>Meu Blog sobre meus jogos e treinos</h1>
+            <p>Bem-vindo ao meu blog pessoal. Aqui compartilho experiências sobre meus jogos e treinos semanais e mensais, espero que gostem.</p>
+            <a href="/sobre" class="btn btn-secondary">Ir para a página Sobre</a>
+            <a href="/contato" class="btn btn-secondary">Ir para a página Contato</a>
+            <a href="/admin" class="btn btn-secondary">Ir para a página de Administração</a>
+            <a href="/postagens" class="btn btn-secondary">Ir para a página de Postagens</a>
+        </header>
+        <section>
+            <h2>Última Postagem</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= lastPost.titulo %></h5>
+                            <p class="card-text"><%= lastPost.descricao %></p>
+                            <a href="/postagens" class="btn btn-primary">Leia Mais</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 </body>
 </html>
